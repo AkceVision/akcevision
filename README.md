@@ -1,2 +1,1 @@
-# akcevision-web
-Official website of AkceVision – AI-powered market intelligence platform.
+docs(readme): bootstrap repository

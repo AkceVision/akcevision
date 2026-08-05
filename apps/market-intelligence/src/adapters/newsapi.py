@@ -4,7 +4,7 @@ from src.config import settings
 
 class NewsApiAdapter(BaseAdapter):
     """
-    Adapter for NewsAPI.
+   Adapter for NewsAPI.
     """
 
     BASE_URL = settings.NEWS_API_URL
@@ -24,3 +24,10 @@ class NewsApiAdapter(BaseAdapter):
             self.BASE_URL,
             params=params,
         )
+
+    def health_check(self):
+        return {
+            "provider": "NewsAPI",
+            "base_url": self.BASE_URL,
+            "configured": bool(settings.NEWS_API_KEY),
+        }

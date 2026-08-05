@@ -18,3 +18,6 @@ class NewsProvider:
             country=country,
             category=category,
         )
+
+    def health_check(self):
+        return self.adapter.health_check()

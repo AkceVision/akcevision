@@ -1,18 +1,20 @@
-from src.clients.http_client import HttpClient
+
+from src.adapters.base import BaseAdapter
 from src.config import settings
 
 
-class NewsApiAdapter:
+class NewsApiAdapter(BaseAdapter):
     """
-    NewsAPI adapter.
+    Adapter for NewsAPI.
     """
 
     BASE_URL = "https://newsapi.org/v2/top-headlines"
 
-    def __init__(self):
-        self.client = HttpClient()
-
-    def get_top_headlines(self, country: str = "us", category: str = "business"):
+    def get_top_headlines(
+        self,
+        country: str = "us",
+        category: str = "business",
+    ):
         params = {
             "country": country,
             "category": category,

@@ -1,4 +1,3 @@
-
 from src.adapters.base import BaseAdapter
 from src.config import settings
 
@@ -8,7 +7,7 @@ class NewsApiAdapter(BaseAdapter):
     Adapter for NewsAPI.
     """
 
-    BASE_URL = "https://newsapi.org/v2/top-headlines"
+    BASE_URL = settings.NEWS_API_URL
 
     def get_top_headlines(
         self,

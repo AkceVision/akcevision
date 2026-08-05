@@ -5,5 +5,5 @@ class CommodityService:
     def __init__(self):
         self.provider = CommodityProvider()
 
-def get_commodities(self):
-    return self.provider.get_commodities()
+    def get_prices(self):
+        return self.provider.get_prices()

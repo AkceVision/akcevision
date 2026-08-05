@@ -18,3 +18,6 @@ class NewsService:
             country=country,
             category=category,
         )
+
+    def health_check(self):
+        return self.provider.health_check()

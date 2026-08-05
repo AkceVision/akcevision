@@ -15,6 +15,9 @@ app = FastAPI(
 
 app.include_router(health_router)
 
+app.include_router(news_router)
+app.include_router(market_router)
+app.include_router(commodity_router)
 
 @app.get("/")
 def root():

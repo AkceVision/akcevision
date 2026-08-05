@@ -1,4 +1,5 @@
 import requests
+from requests import Response
 
 
 class HttpClient:
@@ -6,12 +7,20 @@ class HttpClient:
     Shared HTTP client for external API integrations.
     """
 
-    def get(self, url: str, params: dict | None = None, headers: dict | None = None):
-        response = requests.get(
-            url,
+    DEFAULT_TIMEOUT = 30
+
+    def get(
+        self,
+        url: str,
+        params: dict | None = None,
+        headers: dict | None = None,
+    ) -> dict:
+
+        response: Response = requests.get(
+            url=url,
             params=params,
             headers=headers,
-            timeout=30,
+            timeout=self.DEFAULT_TIMEOUT,
         )
 
         response.raise_for_status()

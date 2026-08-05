@@ -1,6 +1,8 @@
 import requests
 from requests import Response
 
+from src.exceptions.provider import ProviderError
+
 
 class HttpClient:
     """
@@ -16,13 +18,17 @@ class HttpClient:
         headers: dict | None = None,
     ) -> dict:
 
-        response: Response = requests.get(
-            url=url,
-            params=params,
-            headers=headers,
-            timeout=self.DEFAULT_TIMEOUT,
-        )
+        try:
+            response: Response = requests.get(
+                url=url,
+                params=params,
+                headers=headers,
+                timeout=self.DEFAULT_TIMEOUT,
+            )
 
-        response.raise_for_status()
+            response.raise_for_status()
 
-        return response.json()
+            return response.json()
+
+        except requests.RequestException as exc:
+            raise ProviderError(str(exc)) from exc

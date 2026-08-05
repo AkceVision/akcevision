@@ -9,4 +9,4 @@ service = CommodityService()
 
 @router.get("/commodities")
 def get_commodities():
-    return service.get_commodities()
+    return service.get_prices()

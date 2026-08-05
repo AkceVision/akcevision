@@ -9,4 +9,4 @@ service = MarketService()
 
 @router.get("/market")
 def get_market():
-    return service.get_market()
+    return service.get_quotes()

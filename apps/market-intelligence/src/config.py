@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     DEBUG: bool = False
 
     NEWS_API_KEY: str = ""
+    NEWS_API_URL: str = "https://newsapi.org/v2/top-headlines"
 
     ALPHA_VANTAGE_API_KEY: str = ""
 
@@ -27,5 +28,3 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
-NEWS_API_KEY: str = ""
-NEWS_API_URL: str = "https://newsapi.org/v2/top-headlines"

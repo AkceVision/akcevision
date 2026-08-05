@@ -5,5 +5,5 @@ class MarketService:
     def __init__(self):
         self.provider = MarketProvider()
 
-def get_market(self):
-    return self.provider.get_market()
+    def get_quotes(self):
+        return self.provider.get_quotes()

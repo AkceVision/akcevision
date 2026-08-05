@@ -9,4 +9,4 @@ service = NewsService()
 
 @router.get("/news")
 def get_news():
-    return service.get_news()
+    return service.get_latest()

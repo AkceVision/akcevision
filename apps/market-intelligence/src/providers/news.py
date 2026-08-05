@@ -3,11 +3,18 @@ from src.adapters.newsapi import NewsApiAdapter
 
 class NewsProvider:
     """
-    Base News Provider.
+    News Provider.
     """
 
     def __init__(self):
         self.adapter = NewsApiAdapter()
 
-    def get_latest(self):
-        return self.adapter.get_top_headlines()
+    def get_latest(
+        self,
+        country: str = "us",
+        category: str = "business",
+    ):
+        return self.adapter.get_top_headlines(
+            country=country,
+            category=category,
+        )

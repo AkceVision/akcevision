@@ -16,3 +16,8 @@ def get_news(
         country=country,
         category=category,
     )
+
+
+@router.get("/news/health")
+def news_health():
+    return service.health_check()

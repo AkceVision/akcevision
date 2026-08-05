@@ -5,5 +5,5 @@ class NewsService:
     def __init__(self):
         self.provider = NewsProvider()
 
-def get_news(self):
-    return self.provider.get_news()
+    def get_latest(self):
+        return self.provider.get_latest()

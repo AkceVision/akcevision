@@ -1,13 +1,14 @@
-from src.adapters.newsapi import NewsApiAdapter
+from src.providers.base import BaseNewsProvider
+from src.providers.factory import NewsProviderFactory
 
 
-class NewsProvider:
+class NewsProvider(BaseNewsProvider):
     """
     News Provider.
     """
 
     def __init__(self):
-        self.adapter = NewsApiAdapter()
+        self.adapter = NewsProviderFactory.create()
 
     def get_latest(
         self,

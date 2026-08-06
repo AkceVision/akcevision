@@ -5,19 +5,21 @@ from src.version import VERSION
 
 class Settings(BaseSettings):
     APP_NAME: str = "AkceVision Market Intelligence"
-    APP_ENV: str = "development"
-
     VERSION: str = VERSION
     DEBUG: bool = False
 
     NEWS_API_KEY: str = ""
     NEWS_API_URL: str = "https://newsapi.org/v2/top-headlines"
-
+    NEWS_PROVIDER: str = "newsapi"
+    
     ALPHA_VANTAGE_API_KEY: str = ""
     FINNHUB_API_KEY: str = ""
     POLYGON_API_KEY: str = ""
+
     FRED_API_KEY: str = ""
+
     COINGECKO_API_KEY: str = ""
+
     OPENAI_API_KEY: str = ""
 
     model_config = SettingsConfigDict(

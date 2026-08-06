@@ -1,5 +1,6 @@
 from fastapi import APIRouter
 
+from src.models.news import NewsResponse
 from src.services.news_service import NewsService
 
 router = APIRouter()
@@ -12,9 +13,15 @@ def get_news(
     country: str = "us",
     category: str = "business",
 ):
-    return service.get_latest(
+    news = service.get_latest(
         country=country,
         category=category,
+    )
+
+    return NewsResponse(
+        status="success",
+        count=len(news),
+        data=news,
     )
 
 

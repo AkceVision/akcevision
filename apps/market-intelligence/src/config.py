@@ -1,10 +1,12 @@
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 from src.version import VERSION
 
 
 class Settings(BaseSettings):
     APP_NAME: str = "AkceVision Market Intelligence"
+    APP_ENV: str = "development"
+
     VERSION: str = VERSION
     DEBUG: bool = False
 
@@ -12,19 +14,16 @@ class Settings(BaseSettings):
     NEWS_API_URL: str = "https://newsapi.org/v2/top-headlines"
 
     ALPHA_VANTAGE_API_KEY: str = ""
-
     FINNHUB_API_KEY: str = ""
-
     POLYGON_API_KEY: str = ""
-
     FRED_API_KEY: str = ""
-
     COINGECKO_API_KEY: str = ""
-
     OPENAI_API_KEY: str = ""
 
-    class Config:
-        env_file = ".env"
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        extra="ignore",
+    )
 
 
 settings = Settings()

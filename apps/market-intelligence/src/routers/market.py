@@ -1,12 +1,23 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 
 from src.services.market_service import MarketService
 
 router = APIRouter()
 
-service = MarketService()
+
+def get_market_service():
+    """
+    Dependency provider for MarketService.
+    """
+    return MarketService()
 
 
 @router.get("/market")
-def get_market():
-    return service.get_quotes()
+def get_market(
+    symbol: str = "AAPL",
+    service: MarketService = Depends(get_market_service),
+):
+    """
+    Get market quote.
+    """
+    return service.get_quote(symbol)

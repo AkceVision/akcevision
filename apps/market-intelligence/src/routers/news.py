@@ -1,9 +1,13 @@
+import logging
+
 from fastapi import APIRouter, Depends
 
 from src.models.news import NewsResponse
 from src.services.news_service import NewsService
 
 router = APIRouter()
+
+logger = logging.getLogger(__name__)
 
 
 def get_news_service():
@@ -19,6 +23,14 @@ def get_news(
     category: str = "business",
     service: NewsService = Depends(get_news_service),
 ):
+    logger.info(
+        "Fetching news",
+        extra={
+            "country": country,
+            "category": category,
+        },
+    )
+
     news = service.get_latest(
         country=country,
         category=category,
@@ -35,4 +47,6 @@ def get_news(
 def news_health(
     service: NewsService = Depends(get_news_service),
 ):
+    logger.info("Checking News API health")
+
     return service.health_check()

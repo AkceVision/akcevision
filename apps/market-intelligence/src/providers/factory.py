@@ -1,4 +1,5 @@
 from src.adapters.alphavantage import AlphaVantageAdapter
+from src.adapters.finnhub import FinnhubAdapter
 from src.adapters.newsapi import NewsApiAdapter
 from src.config import settings
 
@@ -29,8 +30,13 @@ class MarketProviderFactory:
     def create():
         provider = settings.MARKET_PROVIDER.lower()
 
+        print(f"Market Provider Selected: {provider}")
+
         if provider == "alphavantage":
             return AlphaVantageAdapter()
+
+        if provider == "finnhub":
+            return FinnhubAdapter()
 
         raise ValueError(
             f"Unsupported market provider: {provider}"

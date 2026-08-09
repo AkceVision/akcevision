@@ -17,11 +17,13 @@ class Settings(BaseSettings):
     ALPHA_VANTAGE_API_KEY: str = ""
     ALPHA_VANTAGE_URL: str = "https://www.alphavantage.co/query"
     FINNHUB_API_KEY: str = ""
+    FINNHUB_URL: str = "https://finnhub.io/api/v1/quote"
     POLYGON_API_KEY: str = ""
 
     FRED_API_KEY: str = ""
 
     COINGECKO_API_KEY: str = ""
+    COINGECKO_URL: str = "https://api.coingecko.com/api/v3/simple/price"
 
     OPENAI_API_KEY: str = ""
 

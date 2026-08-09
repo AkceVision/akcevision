@@ -1,25 +1,25 @@
-from src.providers.market import MarketProvider
+from src.providers.crypto import CryptoProvider
 
 
-class MarketService:
+class CryptoService:
     """
-    Market Service.
+    Crypto Service.
     """
 
     def __init__(self):
-        self.provider = MarketProvider()
+        self.provider = CryptoProvider()
 
     def get_quote(
         self,
         symbol: str,
     ):
         """
-        Get market quote.
+        Get crypto quote.
         """
         return self.provider.get_quote(symbol)
 
     def health_check(self):
         """
-        Market health check.
+        Crypto health check.
         """
         return self.provider.health_check()

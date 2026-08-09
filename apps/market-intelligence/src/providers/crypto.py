@@ -1,26 +1,26 @@
-from src.providers.factory import MarketProviderFactory
+from src.adapters.coingecko import CoinGeckoAdapter
 
 
-class MarketProvider:
+class CryptoProvider:
     """
-    Market Provider.
+    Crypto Provider.
     """
 
     def __init__(self):
-        self.adapter = MarketProviderFactory.create()
+        self.adapter = CoinGeckoAdapter()
 
     def get_quote(
         self,
         symbol: str,
     ):
         """
-        Get market quote.
+        Get crypto quote.
         """
         return self.adapter.get_quote(symbol)
 
     def health_check(self):
         """
-        Market provider health information.
+        Crypto provider health.
         """
         return {
             "provider": self.adapter.__class__.__name__,

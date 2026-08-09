@@ -21,3 +21,13 @@ def get_market(
     Get market quote.
     """
     return service.get_quote(symbol)
+
+
+@router.get("/market/health")
+def market_health(
+    service: MarketService = Depends(get_market_service),
+):
+    """
+    Market provider health.
+    """
+    return service.health_check()

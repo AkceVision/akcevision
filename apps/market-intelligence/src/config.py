@@ -11,6 +11,8 @@ class Settings(BaseSettings):
     NEWS_API_KEY: str = ""
     NEWS_API_URL: str = "https://newsapi.org/v2/top-headlines"
     NEWS_PROVIDER: str = "newsapi"
+
+    MARKET_PROVIDER: str = "alphavantage"
     
     ALPHA_VANTAGE_API_KEY: str = ""
     ALPHA_VANTAGE_URL: str = "https://www.alphavantage.co/query"

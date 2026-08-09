@@ -1,4 +1,4 @@
-from src.adapters.alphavantage import AlphaVantageAdapter
+from src.providers.factory import MarketProviderFactory
 
 
 class MarketProvider:
@@ -7,7 +7,7 @@ class MarketProvider:
     """
 
     def __init__(self):
-        self.adapter = AlphaVantageAdapter()
+        self.adapter = MarketProviderFactory.create()
 
     def get_quote(
         self,

@@ -1,3 +1,4 @@
+from src.adapters.alphavantage import AlphaVantageAdapter
 from src.adapters.newsapi import NewsApiAdapter
 from src.config import settings
 
@@ -16,4 +17,21 @@ class NewsProviderFactory:
 
         raise ValueError(
             f"Unsupported news provider: {provider}"
+        )
+
+
+class MarketProviderFactory:
+    """
+    Factory responsible for creating market providers.
+    """
+
+    @staticmethod
+    def create():
+        provider = settings.MARKET_PROVIDER.lower()
+
+        if provider == "alphavantage":
+            return AlphaVantageAdapter()
+
+        raise ValueError(
+            f"Unsupported market provider: {provider}"
         )

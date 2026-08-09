@@ -4,6 +4,7 @@ from src.config import settings
 from src.core.exception_handlers import register_exception_handlers
 from src.core.logging import setup_logging
 
+from src.routers.analysis import router as analysis_router
 from src.routers.commodity import router as commodity_router
 from src.routers.crypto import router as crypto_router
 from src.routers.health import router as health_router
@@ -27,6 +28,7 @@ app.include_router(market_router)
 app.include_router(commodity_router)
 app.include_router(crypto_router)
 app.include_router(macro_router)
+app.include_router(analysis_router)
 
 
 @app.get("/")

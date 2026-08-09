@@ -13,6 +13,7 @@ class Settings(BaseSettings):
     NEWS_PROVIDER: str = "newsapi"
     
     ALPHA_VANTAGE_API_KEY: str = ""
+    ALPHA_VANTAGE_URL: str = "https://www.alphavantage.co/query"
     FINNHUB_API_KEY: str = ""
     POLYGON_API_KEY: str = ""
 

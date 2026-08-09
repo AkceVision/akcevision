@@ -21,6 +21,7 @@ class Settings(BaseSettings):
     POLYGON_API_KEY: str = ""
 
     FRED_API_KEY: str = ""
+    FRED_URL: str = "https://api.stlouisfed.org/fred/series/observations"
 
     COINGECKO_API_KEY: str = ""
     COINGECKO_URL: str = "https://api.coingecko.com/api/v3/simple/price"

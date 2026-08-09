@@ -11,49 +11,54 @@ class AnalysisService:
     """
 
     def __init__(self):
-        self.news = NewsService()
-        self.market = MarketService()
-        self.crypto = CryptoService()
-        self.macro = MacroService()
-        self.ai = AIService()
+        self.market_service = MarketService()
+        self.news_service = NewsService()
+        self.crypto_service = CryptoService()
+        self.macro_service = MacroService()
+        self.ai_service = AIService()
 
     def analyze(
         self,
         symbol: str = "AAPL",
     ):
         """
-        Analyze market data using AI.
+        Collect data from all intelligence providers
+        and request an AI-generated analysis.
         """
 
-        market = self.market.get_quote(symbol)
+        market = self.market_service.get_quote(symbol)
 
-        macro = self.macro.get_indicator("FEDFUNDS")
+        macro = self.macro_service.get_indicator("FEDFUNDS")
 
-        crypto = self.crypto.get_quote("bitcoin")
+        crypto = self.crypto_service.get_quote("bitcoin")
 
-        news = self.news.get_latest()
+        news = self.news_service.get_latest()
 
         system_prompt = (
-            "You are an expert financial market analyst. "
-            "Analyze the supplied market information and "
-            "return a concise professional summary."
+            "You are a senior financial analyst. "
+            "Analyze the supplied financial data and return "
+            "a concise professional market summary."
         )
 
         user_prompt = f"""
-Market:
+Market
+------
 {market}
 
-Macro:
+Macro
+-----
 {macro}
 
-Crypto:
+Crypto
+------
 {crypto}
 
-News:
+News
+----
 {news}
 """
 
-        summary = self.ai.ask(
+        summary = self.ai_service.ask(
             system_prompt=system_prompt,
             user_prompt=user_prompt,
         )
@@ -64,5 +69,11 @@ News:
             "macro": macro,
             "crypto": crypto,
             "news_count": len(news),
-            "summary": summary,
+            "analysis": summary,
         }
+
+    def health_check(self):
+        """
+        Analysis service health.
+        """
+        return self.ai_service.health_check()

@@ -1,4 +1,10 @@
-from openai import OpenAI
+from openai import (
+    APIConnectionError,
+    APITimeoutError,
+    AuthenticationError,
+    OpenAI,
+    RateLimitError,
+)
 
 from src.config import settings
 
@@ -30,19 +36,46 @@ class OpenAIAdapter:
         Send a chat completion request.
         """
 
-        response = self.client.chat.completions.create(
-            model=self.model,
-            messages=[
-                {
-                    "role": "system",
-                    "content": system_prompt,
-                },
-                {
-                    "role": "user",
-                    "content": user_prompt,
-                },
-            ],
-            temperature=0.2,
-        )
+        try:
 
-        return response.choices[0].message.content
+            response = self.client.chat.completions.create(
+                model=self.model,
+                messages=[
+                    {
+                        "role": "system",
+                        "content": system_prompt,
+                    },
+                    {
+                        "role": "user",
+                        "content": user_prompt,
+                    },
+                ],
+                temperature=0.2,
+            )
+
+            return response.choices[0].message.content
+
+        except RateLimitError:
+            return (
+                "OpenAI API quota exceeded. "
+                "Please check your API billing or remaining credits."
+            )
+
+        except AuthenticationError:
+            return (
+                "OpenAI authentication failed. "
+                "Please verify your API key."
+            )
+
+        except APITimeoutError:
+            return (
+                "OpenAI request timed out."
+            )
+
+        except APIConnectionError:
+            return (
+                "Unable to connect to OpenAI."
+            )
+
+        except Exception as exc:
+            return f"OpenAI Error: {exc}"

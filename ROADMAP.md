@@ -10,7 +10,7 @@ Enterprise AI-Native Decision Intelligence Platform
 |---------|--------|
 | Repository | 🟢 Active |
 | Current Version | 0.1.0 |
-| Current Milestone | M-002 Market Intelligence Foundation |
+| Current Milestone | M-003 Portfolio Intelligence Foundation |
 | Development Phase | Foundation |
 | Overall Progress | 20% |
 
@@ -29,8 +29,8 @@ AkceVision is an enterprise AI-native platform that transforms data into actiona
 | Gateway | 0.1.0 | ✅ Completed |
 | Identity Service | Planned | ⏳ Planned |
 | AI Core | Planned | ⏳ Planned |
-| Market Intelligence | In Progress | 🚧 80% |
-| Portfolio Intelligence | Planned | ⏳ 0% |
+| Market Intelligence | Completed | ✅ 100% |
+| Portfolio Intelligence | Next | 🚧 0% |
 | Risk Intelligence | Planned | ⏳ Planned |
 | Notification Service | Planned | ⏳ Planned |
 | Scheduler Service | Planned | ⏳ Planned |
@@ -134,9 +134,9 @@ AkceVision is an enterprise AI-native platform that transforms data into actiona
 
 # Current Sprint
 
-## Sprint MI-001
+## Sprint PI-001
 
-Market Intelligence Foundation
+Portfolio Intelligence Foundation
 
 Current objectives:
 

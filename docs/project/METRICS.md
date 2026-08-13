@@ -33,9 +33,9 @@ The metrics defined here will initially be maintained manually and are planned t
 | Metric | Current | Target |
 |---------|--------:|-------:|
 | Overall Progress | 20% | 100% |
-| Completed Modules | 1 | 6 |
-| Completed Milestones | 1 | 10 |
-| Active Sprint | 2 | Continuous |
+| Completed Modules | 2 | 6 |
+| Completed Milestones | 2 | 10 |
+| Active Sprint | 1 | Continuous |
 | Active Branch | main | main |
 
 ---

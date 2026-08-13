@@ -8,9 +8,9 @@
 
 ## Current Milestone
 
-🚧 M-002
+🚧 M-003
 
-Market Intelligence Foundation
+Portfolio Intelligence Foundation
 
 ---
 
@@ -25,8 +25,8 @@ Market Intelligence Foundation
 | Module | Status | Progress |
 |---------|--------|---------:|
 | Gateway | ✅ Complete | 100% |
-| Market Intelligence | 🚧 In Progress | 80% |
-| Portfolio Intelligence | ⏳ Planned | 0% |
+| Market Intelligence | ✅ Complete | 100% |
+| Portfolio Intelligence | 🚧 Next | 0% |
 | Executive Intelligence | ⏳ Planned | 0% |
 | Risk Intelligence | ⏳ Planned | 0% |
 | Common Services | ⏳ Planned | 0% |
@@ -66,11 +66,11 @@ feat(market-intelligence): improve OpenAI error handling
 
 ## Current Sprint
 
-MI-001 — Market Intelligence Foundation
+PI-001 — Portfolio Intelligence Foundation
 
-Status: 🚧 In Progress
+Status: 🚧 Next
 
-Progress: 80%
+Progress: 0%
 
 ---
 

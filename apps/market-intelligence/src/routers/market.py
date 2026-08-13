@@ -5,11 +5,14 @@ from src.services.market_service import MarketService
 router = APIRouter()
 
 
+_service = MarketService()
+
+
 def get_market_service():
     """
     Dependency provider for MarketService.
     """
-    return MarketService()
+    return _service
 
 
 @router.get("/market")

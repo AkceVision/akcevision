@@ -25,3 +25,22 @@ def test_map_quote():
     assert quote.price == 231.25
     assert quote.change == -1.21
     assert quote.change_percent == -0.52
+
+def test_map_quote_rate_limit_response():
+    """
+    Alpha Vantage rate-limit responses must not produce a fake zero quote.
+    """
+
+    adapter = AlphaVantageAdapter()
+
+    response = {
+        "Information": (
+            "Thank you for using Alpha Vantage! "
+            "Please consider spreading out your free API requests more sparingly."
+        )
+    }
+
+    import pytest
+
+    with pytest.raises(RuntimeError, match="Alpha Vantage"):
+        adapter.map_quote(response)

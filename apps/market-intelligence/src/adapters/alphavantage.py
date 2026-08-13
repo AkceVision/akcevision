@@ -39,7 +39,22 @@ class AlphaVantageAdapter(BaseAdapter):
         Convert Alpha Vantage response into MarketQuote.
         """
 
+        if "Information" in response:
+            raise RuntimeError(
+                f"Alpha Vantage response error: {response['Information']}"
+            )
+
+        if "Error Message" in response:
+            raise RuntimeError(
+                f"Alpha Vantage response error: {response['Error Message']}"
+            )
+
         quote = response.get("Global Quote", {})
+
+        if not quote:
+            raise RuntimeError(
+                "Alpha Vantage returned no market quote."
+            )
 
         return MarketQuote(
             symbol=quote.get("01. symbol", ""),
